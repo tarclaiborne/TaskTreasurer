@@ -1,21 +1,26 @@
 {
   "name": "tasktreasurer",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "mogoose": "^0.0.1-security",
-    "mongobd": "^0.0.1-security.0",
-    "mongodb": "^6.13.0",
-    "mongoose": "^8.9.7",
-    "monodb": "^1.5.1"
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.15.0",
+    "mongoose": "^8.12.1",
+    "stripe": "^18.2.1",
+    "xpress": "^2.4.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
   }
 }
