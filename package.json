@@ -1,26 +1,20 @@
-{
-  "name": "tasktreasurer",
-  "version": "1.0.0",
-  "main": "server.js",
-  "scripts": {
-    "dev": "nodemon server.js",
-    "start": "node server.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "bcrypt": "^6.0.0",
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "jsonwebtoken": "^9.0.2",
-    "mongodb": "^6.15.0",
-    "mongoose": "^8.12.1",
-    "stripe": "^18.2.1",
-    "xpress": "^2.4.6"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.9"
-  }
-}
+# Use a stable Node.js base image
+FROM node:20-alpine
+
+# Create and set working directory
+WORKDIR /app
+
+# Copy only package files to install dependencies
+COPY package*.json ./
+
+# Install only production dependencies
+RUN npm install --production
+
+# Copy the rest of the application code
+COPY . .
+
+# Expose your app’s listening port (adjust if needed)
+EXPOSE 3000
+
+# Start your app
+CMD ["npm", "start"]
