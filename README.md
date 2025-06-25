@@ -47,3 +47,6 @@ Project Goals
    •   🔒 Implement secure authentication and database handling.
 
    •   🌐 Deploy the application to be accessible anywhere.
+
+## Trigger deploy test — success incoming 🚀
+
