@@ -15,9 +15,15 @@ jobs:
       - name: Install Railway CLI
         run: npm install -g @railway/cli
 
-      - name: Deploy via Railway
-        env:
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-        run: railway up
+      - name: Deploy via Railway (custom run)
+  env:
+    RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+  run: |
+    echo "🔑 Checking Railway access..."
+    railway whoami || echo "❌ Auth failed"
+    echo "📦 Running custom deploy command"
+    railway run npm run build
 
-# Trigger deploy test 🚀
+
+
+

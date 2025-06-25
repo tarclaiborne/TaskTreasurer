@@ -50,3 +50,8 @@ Project Goals
 
 ## Trigger deploy test — success incoming 🚀
 
+## Deployment Status
+
+🚀 Auto-deploy via GitHub Actions + Railway: in progress...
+
+Add deployment status section to README
