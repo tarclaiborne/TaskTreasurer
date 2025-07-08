@@ -3,7 +3,7 @@ name: Deploy TaskTreasurer
 on:
   push:
     branches:
-      - main  # or 'master' if that's your default branch
+      - main
 
 jobs:
   deploy:
@@ -21,7 +21,10 @@ jobs:
       - name: 📦 Install dependencies
         run: npm install
 
+      - name: 🚀 Install Railway CLI
+        run: npm install -g @railway/cli
+
       - name: 🚀 Deploy to Railway
-        run: npx railway up
+        run: railway up
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
