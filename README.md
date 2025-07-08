@@ -22,4 +22,4 @@
 
 ```bash
 git clone https://github.com/your-username/TaskTreasurer.git
-cd TaskTreasurer
+cd TaskTreasurer// trigger deploy
