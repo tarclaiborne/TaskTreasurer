@@ -5,19 +5,30 @@ require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 8080;
-const authRoutes = require('./routes/auth');
-
-app.use('/auth', authRoutes);
 
 // Middleware
 app.use(express.json());
 
+// Routes
+const authRoutes = require('./routes/auth');
+const auth = require('./middleware/auth');
 const Task = require('./models/task');
 
-// Create a new task
-app.post('/tasks', async (req, res) => {
+app.use('/auth', authRoutes);
+
+// Protected Task Routes
+app.get('/tasks', auth, async (req, res) => {
   try {
-    const task = new Task({ title: req.body.title });
+    const tasks = await Task.find({ userId: req.user._id });
+    res.json(tasks);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.post('/tasks', auth, async (req, res) => {
+  try {
+    const task = new Task({ ...req.body, userId: req.user._id });
     await task.save();
     res.status(201).json(task);
   } catch (err) {
@@ -25,21 +36,10 @@ app.post('/tasks', async (req, res) => {
   }
 });
 
-// Get all tasks
-app.get('/tasks', async (req, res) => {
+app.put('/tasks/:id', auth, async (req, res) => {
   try {
-    const tasks = await Task.find();
-    res.json(tasks);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
-
-// Update a task (e.g. mark as completed)
-app.put('/tasks/:id', async (req, res) => {
-  try {
-    const task = await Task.findByIdAndUpdate(
-      req.params.id,
+    const task = await Task.findOneAndUpdate(
+      { _id: req.params.id, userId: req.user._id },
       { $set: req.body },
       { new: true }
     );
@@ -50,10 +50,9 @@ app.put('/tasks/:id', async (req, res) => {
   }
 });
 
-// Delete a task
-app.delete('/tasks/:id', async (req, res) => {
+app.delete('/tasks/:id', auth, async (req, res) => {
   try {
-    const task = await Task.findByIdAndDelete(req.params.id);
+    const task = await Task.findOneAndDelete({ _id: req.params.id, userId: req.user._id });
     if (!task) return res.status(404).json({ error: 'Task not found' });
     res.json({ message: 'Task deleted' });
   } catch (err) {
@@ -61,12 +60,10 @@ app.delete('/tasks/:id', async (req, res) => {
   }
 });
 
-// Basic route
+// Root route
 app.get('/', (req, res) => {
   res.send('TaskTreasurer is running!');
 });
-
-console.log('MONGO_URL:', process.env.MONGO_URL);
 
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URL, {
