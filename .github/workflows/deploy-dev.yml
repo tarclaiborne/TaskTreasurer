@@ -1,0 +1,30 @@
+name: 🚀 Deploy TaskTreasurer (Dev)
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🛠️ Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 📦 Install dependencies
+        run: npm install
+
+      - name: 🚀 Install Railway CLI
+        run: npm install -g @railway/cli
+
+      - name: 🚀 Deploy to Railway (Dev)
+        run: railway up --service a01effcd-636e-4164-89fe-b740cf0e9113
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN_DEV }}
