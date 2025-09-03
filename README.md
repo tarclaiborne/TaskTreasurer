@@ -140,6 +140,7 @@ Run all tests:
 pnpm test
 
 Generate coverage report:
+pnpm run test:coverage
 
 📊 API Documentation
 • 	Swagger UI: coming soon
@@ -157,95 +158,17 @@ We welcome thoughtful, respectful contributions. TaskTreasurer empowers contribu
 • 	🧼 Frictionless onboarding
 • 	📚 Discoverable documentation
 • 	🧪 Bulletproof hygiene
+
 Please follow our contributing guide and open issues for bugs, ideas, or improvements.
 
 🗺️ Roadmap
 Coming soon:
-• 	
-• 	
-• 	
+- eslint-config-tasktreasurer/react
+  eslint-config-tasktreasurer/node
+- eslint-config-tasktreasurer/security
+
 • 	GitHub templates for issues, PRs, and onboarding
 
-
-🔧 Usage
-In your :
-
-Available layers:
-• 	
-• 	
-• 	
-• 	
-
-📦 Peer Dependencies
-Make sure you have:
-
-
-🧪 Validate Your Setup
-Run the built-in validator:
-
-Or manually:
-
-
-🧹 ESLint Hygiene
-Scripts:
-
-
-🛠️ CI/CD Workflow
-GitHub Actions runs:
-• 	✅ Environment validation
-• 	✅ ESLint & Prettier
-• 	✅ Unit & integration tests
-• 	✅ Coverage reporting
-• 	✅ CRLF enforcement
-• 	✅ Optional build step
-• 	🚀 Semantic-release for automated publishing
-
-📦 Semantic-release
-Automates:
-• 	📈 Version bumps
-• 	📝 Changelog generation
-• 	📦 npm publishing
-• 	📣 GitHub release notes
-Releases are triggered automatically on  via CI.
-
-🧑‍💻 Contributor Setup
-TaskTreasurer uses pnpm for fast, workspace-aware installs.
-
-Run diagnostics and hygiene checks:
-
-
-📦 Project Structure
-
-
-🧪 Testing
-Run all tests:
-
-Generate coverage report:
-
-
-📊 API Documentation
-• 	Swagger UI: coming soon
-• 	Health check: coming soon
-
-🔐 Authentication
-JWT is required for protected routes.
-Example request:
-
-
-🤝 Contributing
-We welcome thoughtful, respectful contributions. TaskTreasurer empowers contributors with:
-• 	🔍 Automated diagnostics
-• 	🧼 Frictionless onboarding
-• 	📚 Discoverable documentation
-• 	🧪 Bulletproof hygiene
-Please follow our contributing guide and open issues for bugs, ideas, or improvements.
-
-🗺️ Roadmap
-Coming soon:
-• 	
-• 	
-• 	
-• 	GitHub templates for issues, PRs, and onboarding
 
 📷 QR Code for Direct Access
 QR code for eslint-config-tasktreasurer
