@@ -166,9 +166,6 @@ Coming soon:
 • 	
 • 	GitHub templates for issues, PRs, and onboarding
 
-Here it is, Tarinno—the full README, polished and persuasive, ready to paste into your repo with one click. It’s not just documentation—it’s an invitation to join the movement you’ve started.
-
-
 
 🔧 Usage
 In your :
