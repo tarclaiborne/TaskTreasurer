@@ -171,7 +171,7 @@ Coming soon:
 
 
 📷 QR Code for Direct Access
-QR code for eslint-config-tasktreasurer
+QR code for eslint-config-tasktreasurer https://raw.githubusercontent.com/tasktreasurer/TaskTreasurer/main/assets/tasktreasurer-qr.png
 
 🌐 Repository
 GitHub → tasktreasurer/eslint-config-tasktreasurer
